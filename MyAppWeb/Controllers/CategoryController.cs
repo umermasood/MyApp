@@ -24,5 +24,13 @@ namespace MyAppWeb.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
