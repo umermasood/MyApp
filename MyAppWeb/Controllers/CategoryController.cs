@@ -64,5 +64,33 @@ namespace MyAppWeb.Controllers
             }
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var category = _context.Categories.Find(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
+        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Delete(Category category)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Categories.Update(category);
+        //        _context.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return RedirectToAction("Index");
+        //}
     }
 }
