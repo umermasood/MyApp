@@ -19,4 +19,11 @@
         <button class="btn btn-primary" type="submit">Create</button>
     </div>
     <a asp-action="Index" asp-controller="category">Back to List</a>
-</form> 
+</form>
+
+@section scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+}
